@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}MoyTransport index{% endblock %}
+
+{% block body %}
+    <h1>MoyTransport index</h1>
+
+
+
+
+
+
+
+
+       <div class="container d-flex flex-row">
+           {% for moy_transport in moy_transports %}
+           <div class="card" style="width: 18rem;">
+               <img src="{{ moy_transport.picture }}" height="300px" class="card-img-top" alt="...">
+               <div class="card-body">
+                   <h5 class="{{ moy_transport.name }}">Card title</h5>
+                   <p class="card-text">{{ moy_transport.villeDepart }}-->{{ moy_transport.villeArrive }} </br>{{ moy_transport.Description |replace({'bro': '***', 'tiiit': "*****"})}}<br>{{ moy_transport.price }} </p>
+
+                   <a class="btn btn-primary" href="{{ path('moy_transport_show', {'id': moy_transport.id}) }}">show</a>
+                   <a class="btn btn-danger" href="{{ path('moy_transport_edit', {'id': moy_transport.id}) }}">edit</a>
+               </div>
+
+           </div>
+
+
+
+        {% else %}
+
+                <p colspan="8">no records found</p>
+
+        {% endfor %}
+
+       </div>
+    <a class="btn btn-light" href="{{ path('moy_transport_new') }}">Create new</a>
+{% endblock %}

@@ -1,0 +1,37 @@
+{% block body %}
+
+    <h1 align="center">Riservation</h1>
+
+    {% for reservation in reservations %}
+            <table class="table">
+                <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Iduser</th>
+                    <th>Date</th>
+                    <th>Ref</th>
+                    <th>Etat</th>
+                    <th>Price</th>
+                    <th>Name</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>{{ reservation.id }}</td>
+                    <td>{{ reservation.iduser  }}</td>
+                    <td>{{ reservation.date ? reservation.date|date('Y-m-d') : '' }}</td>
+                    <td>{{  reservation.ref }}</td>
+                    <td>{{ reservation.etat }}</td>
+                    <td>{{ reservation.price }}</td>
+                    <td>{{ reservation.name }}</td>
+
+                </tr>
+                </tbody>
+            </table>
+
+
+
+    {% endfor %}
+
+
+{% endblock %}
